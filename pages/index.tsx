@@ -68,8 +68,8 @@ class Home extends React.Component<{}, State> {
     const ratio = this.state.voted / this.state.total * 100
     return (
       <div>
-        <div className="mt-40">
-          <h1 className="whitespace-nowrap w-min mx-auto text-6xl">
+        <div className="mt-32">
+          <h1 className="whitespace-nowrap w-min mx-auto text-6xl thin">
             샌즈초등학교 투표 도우미
           </h1>
         </div>
@@ -122,7 +122,7 @@ class Home extends React.Component<{}, State> {
           />
         </div>
         <div>
-          <h1 className='w-min mx-auto whitespace-nowrap'>{ratio ? `${ratio.toFixed(1)} %` : "구할 수 없음"}</h1>
+          <h1 className='thin w-min mx-auto whitespace-nowrap'>{ratio ? `${ratio.toFixed(1)} %` : "구할 수 없음"}</h1>
         </div>
       </div>
     );
