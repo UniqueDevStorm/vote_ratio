@@ -43,7 +43,7 @@ class Home extends React.Component<{}, State> {
         datasets: [
           {
             label: "# of Votes",
-            data: [this.state.total - this.state.voted, this.state.voted],
+            data: [this.state.voted, this.state.total - this.state.voted],
             backgroundColor: [
               "rgba(54, 162, 235, 0.2)",
               "rgba(89, 89, 89, 0.2)",
@@ -99,28 +99,30 @@ class Home extends React.Component<{}, State> {
         <div className="w-[15%] h-[15%] mx-auto">
           <Pie data={data[0]} />
         </div>
-        <div className="w-1/3 h-min mx-auto">
-          <Bar
-            data={data[1]}
-            options={{
-              indexAxis: "y" as const,
-              elements: {
-                bar: {
-                  borderWidth: 2,
+        <div className='w-full'>
+          <div className="w-1/3 h-min mx-auto">
+            <Bar
+              data={data[1]}
+              options={{
+                indexAxis: "y" as const,
+                elements: {
+                  bar: {
+                    borderWidth: 2,
+                  },
                 },
-              },
-              responsive: true,
-              plugins: {
-                legend: {
-                  position: "right" as const,
+                responsive: true,
+                plugins: {
+                  legend: {
+                    position: "right" as const,
+                  },
+                  title: {
+                    display: true,
+                    text: "투표율",
+                  },
                 },
-                title: {
-                  display: true,
-                  text: "투표율",
-                },
-              },
-            }}
-          />
+              }}
+            />
+          </div>
         </div>
         <div>
           <h1 className="thin w-min mx-auto whitespace-nowrap">
