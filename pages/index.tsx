@@ -45,10 +45,10 @@ class Home extends React.Component<{}, State> {
             label: "# of Votes",
             data: [this.state.total - this.state.voted, this.state.voted],
             backgroundColor: [
-              "rgba(255, 99, 132, 0.2)",
               "rgba(54, 162, 235, 0.2)",
+              "rgba(89, 89, 89, 0.2)",
             ],
-            borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
+            borderColor: ["rgba(54, 162, 235, 1)", "rgba(0, 0, 0, 1)"],
             borderWidth: 1,
           },
         ],
@@ -59,16 +59,17 @@ class Home extends React.Component<{}, State> {
           {
             label: "투표자",
             data: [this.state.voted, this.state.total],
-            borderColor: "rgb(255, 99, 132)",
-            backgroundColor: "rgba(255, 99, 132, 0.5)",
+            borderColor: "rgba(54, 162, 235, 1)",
+            backgroundColor: "rgba(54, 162, 235, 0.2)",
+            borderWidth: 1,
           },
         ],
       },
     ];
-    const ratio = this.state.voted / this.state.total * 100
+    const ratio = (this.state.voted / this.state.total) * 100;
     return (
       <div>
-        <div className="mt-32">
+        <div className="mt-24">
           <h1 className="whitespace-nowrap w-min mx-auto text-6xl thin">
             샌즈초등학교 투표 도우미
           </h1>
@@ -95,7 +96,7 @@ class Home extends React.Component<{}, State> {
             }}
           />
         </div>
-        <div className="w-96 h-96 mx-auto">
+        <div className="w-[15%] h-[15%] mx-auto">
           <Pie data={data[0]} />
         </div>
         <div className="w-1/3 h-min mx-auto">
@@ -122,7 +123,13 @@ class Home extends React.Component<{}, State> {
           />
         </div>
         <div>
-          <h1 className='thin w-min mx-auto whitespace-nowrap'>{ratio ? `${ratio.toFixed(1)} %` : "구할 수 없음"}</h1>
+          <h1 className="thin w-min mx-auto whitespace-nowrap">
+            {ratio
+              ? parseFloat(ratio.toFixed(1)) > 100.0
+                ? "구할 수 없음"
+                : `${ratio.toFixed(1)} %`
+              : "구할 수 없음"}
+          </h1>
         </div>
       </div>
     );
