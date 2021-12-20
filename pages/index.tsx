@@ -71,7 +71,7 @@ class Home extends React.Component<{}, State> {
       <div>
         <div className="mt-24">
           <h1 className="whitespace-nowrap w-min mx-auto text-6xl thin">
-            샌즈초등학교 투표 도우미
+            ${process.env.NAME} 투표 도우미
           </h1>
         </div>
         <div className="flex w-min mx-auto gap-10 mt-10">
